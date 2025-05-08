@@ -5,7 +5,7 @@
     }
 
     const stringFormat = formatString("Hello", true)
-    // console.log(stringFormat)
+    console.log(stringFormat)
 
 
     function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[] {
@@ -19,7 +19,7 @@
     ];
 
     const filterBooks = filterByRating(books);
-    // console.log(filterBooks)
+    console.log(filterBooks)
 
 
 
@@ -34,8 +34,8 @@
     const stringArray = concatenateArrays(["a", "b"], ["c"]); // ["a", "b", "c"]
     const numberArray = concatenateArrays([1, 2], [3, 4], [5]); // [1, 2, 3, 4, 5]
 
-    // console.log(stringArray)
-    // console.log(numberArray)
+    console.log(stringArray)
+    console.log(numberArray)
 
 
     class Vehicle {
@@ -57,5 +57,17 @@
     const myCar = new Car("Toyota", 2020, "Corolla");
     myCar.getInfo();   // Output: "Make: Toyota, Year: 2020"
     myCar.getModel();  // Output: "Model: Corolla"
+
+
+
+    function processValue(value: string | number): number {
+        return typeof value === 'string' ? value?.length : value * 2
+    }
+
+    const stringValue = processValue("hello"); // Output: 5
+    const numberValue = processValue(10);      // Output: 20
+
+    console.log(stringValue)
+    console.log(numberValue)
 
 }
