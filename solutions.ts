@@ -62,7 +62,7 @@
 
 
     function processValue(value: string | number): number {
-        const result = typeof value === 'string' ? value?.length : value * 2
+        const result = typeof value === 'number' ?  value * 2 : value?.length
         console.log(result)
         return result
     }
@@ -129,4 +129,20 @@
     }
     squareAsync(4).then(console.log);        // Output after 1s: 16
     squareAsync(-3).catch(console.error);    // Output: Error: Negative number not allowed
+
+
+
+    interface User {
+        name: string;
+    }
+
+    interface User2 extends User {
+        role: string
+    }
+
+    interface UserRoll {
+        [index: number]: number
+    }
+
+    const roll: UserRoll = [1, 2, 3]
 }
