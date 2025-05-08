@@ -1,15 +1,19 @@
 {
 
     function formatString(input: string, toUpper?: boolean): string {
-        return toUpper === false ? input?.toLowerCase() : input?.toUpperCase()
+        const result = toUpper === false ? input?.toLowerCase() : input?.toUpperCase()
+        console.log(result)
+        return result
     }
 
-    const stringFormat = formatString("Hello", true)
-    console.log(stringFormat)
+    formatString("Hello", false)
+    // console.log(stringFormat)
 
 
     function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[] {
-        return items?.filter(item => item?.rating >= 4)
+        const result = items?.filter(item => item?.rating >= 4)
+        console.log(result)
+        return result
     }
 
     const books = [
@@ -18,8 +22,7 @@
         { title: "Book C", rating: 5.0 }
     ];
 
-    const filterBooks = filterByRating(books);
-    console.log(filterBooks)
+    filterByRating(books);
 
 
 
@@ -28,14 +31,12 @@
         arrays.forEach(arr => {
             result = result.concat(arr);
         });
+        console.log(result)
         return result;
     }
 
-    const stringArray = concatenateArrays(["a", "b"], ["c"]); // ["a", "b", "c"]
-    const numberArray = concatenateArrays([1, 2], [3, 4], [5]); // [1, 2, 3, 4, 5]
-
-    console.log(stringArray)
-    console.log(numberArray)
+    concatenateArrays(["a", "b"], ["c"]);
+    concatenateArrays([1, 2], [3, 4], [5]);
 
 
     class Vehicle {
@@ -61,14 +62,13 @@
 
 
     function processValue(value: string | number): number {
-        return typeof value === 'string' ? value?.length : value * 2
+        const result = typeof value === 'string' ? value?.length : value * 2
+        console.log(result)
+        return result
     }
 
-    const stringValue = processValue("hello"); // Output: 5
-    const numberValue = processValue(10);      // Output: 20
-
-    console.log(stringValue)
-    console.log(numberValue)
+    processValue("hello");
+    processValue(10);
 
 
 
@@ -80,6 +80,7 @@
     function getMostExpensiveProduct(products: Product[]): Product | null {
         const maxPrice = Math.max(...products.map(p => p.price));
         const mostExpensive = products.filter(p => p.price === maxPrice);
+        console.log(mostExpensive[0] || null)
         return mostExpensive[0] || null;
     }
 
@@ -89,8 +90,7 @@
         { name: "Bag", price: 50 }
     ];
 
-    const maxedPriceProduct = getMostExpensiveProduct(products);
-    console.log(maxedPriceProduct)
+    getMostExpensiveProduct(products);
 
 
 
@@ -105,14 +105,13 @@
     }
 
     function getDayType(day: Day): string {
-        return day === Day?.Saturday || day === Day?.Sunday ? "Weekend" : "Weekday"
+        const result = day === Day?.Saturday || day === Day?.Sunday ? "Weekend" : "Weekday"
+        console.log(result)
+        return result
     }
 
-    const weekday = getDayType(Day.Monday);
-    const weekend = getDayType(Day.Sunday);
-
-    console.log(weekday);
-    console.log(weekend);
+    getDayType(Day.Friday);
+    getDayType(Day.Sunday);
 
 
 
