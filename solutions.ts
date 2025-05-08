@@ -71,6 +71,7 @@
     console.log(numberValue)
 
 
+
     interface Product {
         name: string;
         price: number;
@@ -90,4 +91,31 @@
 
     const maxedPriceProduct = getMostExpensiveProduct(products);
     console.log(maxedPriceProduct)
+
+
+
+    enum Day {
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    }
+
+    function getDayType(day: Day): string {
+        return day === Day?.Saturday || day === Day?.Sunday ? "Weekend" : "Weekday"
+    }
+
+    const weekday = getDayType(Day.Monday);   
+    const weekend = getDayType(Day.Sunday);   
+
+    console.log(weekday);   
+    console.log(weekend);
+    
+    
+
+
+    
 }
