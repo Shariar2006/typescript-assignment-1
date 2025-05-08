@@ -1,20 +1,15 @@
 {
 
-    function formatString(input: string, toUpper: boolean = true): string {
-        if (!toUpper) {
-            return input?.toLowerCase()
-        } else {
-            return input?.toUpperCase()
-        }
+    function formatString(input: string, toUpper?: boolean): string {
+        return toUpper === false ? input?.toLowerCase() : input?.toUpperCase()
     }
 
-    const stringFormat = formatString("Hello")
-
+    const stringFormat = formatString("Hello", true)
     // console.log(stringFormat)
 
 
     function filterByRating(items: { title: string; rating: number }[]): { title: string; rating: number }[] {
-       return items?.filter(item => item?.rating >= 4)
+        return items?.filter(item => item?.rating >= 4)
     }
 
     const books = [
@@ -25,5 +20,42 @@
 
     const filterBooks = filterByRating(books);
     // console.log(filterBooks)
+
+
+
+    function concatenateArrays<T>(...arrays: T[][]): T[] {
+        let result: T[] = [];
+        arrays.forEach(arr => {
+            result = result.concat(arr);
+        });
+        return result;
+    }
+
+    const stringArray = concatenateArrays(["a", "b"], ["c"]); // ["a", "b", "c"]
+    const numberArray = concatenateArrays([1, 2], [3, 4], [5]); // [1, 2, 3, 4, 5]
+
+    // console.log(stringArray)
+    // console.log(numberArray)
+
+
+    class Vehicle {
+        constructor(private make: string, public year: number) { }
+        getInfo() {
+            console.log(`Make: ${this.make}, Year: ${this.year}`)
+        }
+    }
+
+    class Car extends Vehicle {
+        constructor(make: string, year: number, private model: string) {
+            super(make, year)
+        }
+        getModel() {
+            console.log(`Model: ${this.model}`)
+        }
+    }
+
+    const myCar = new Car("Toyota", 2020, "Corolla");
+    myCar.getInfo();   // Output: "Make: Toyota, Year: 2020"
+    myCar.getModel();  // Output: "Model: Corolla"
 
 }
