@@ -70,4 +70,24 @@
     console.log(stringValue)
     console.log(numberValue)
 
+
+    interface Product {
+        name: string;
+        price: number;
+    }
+
+    function getMostExpensiveProduct(products: Product[]): Product | null {
+        const maxPrice = Math.max(...products.map(p => p.price));
+        const mostExpensive = products.filter(p => p.price === maxPrice);
+        return mostExpensive[0] || null;
+    }
+
+    const products = [
+        { name: "Pen", price: 10 },
+        { name: "Notebook", price: 25 },
+        { name: "Bag", price: 50 }
+    ];
+
+    const maxedPriceProduct = getMostExpensiveProduct(products);
+    console.log(maxedPriceProduct)
 }
